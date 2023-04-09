@@ -46,7 +46,11 @@ export default function Shope() {
                 About
                 <Image src={info_icon} ml="1" mb={"0.5"} />
               </Text>
-              <Box width={{ md: "90%", lg: "60%" }} color={"black"}>
+              <Box
+                width={{ md: "90%", lg: "60%" }}
+                color={"black"}
+                fontSize={{ base: "small", sm: "medium" }}
+              >
                 Liberate your glow with wildly clean ingredients. 100 % NON
                 TOXIC, MADE SAFE® CERTIFIED, CRUELTY -FREE Our clean and
                 sustainable products are clinically proven to work at the
@@ -54,33 +58,28 @@ export default function Shope() {
               </Box>
             </Box>
           </Box>
-          {/* <hr
-            style={{
-              height: "2px",
-              backgroundColor: "black",
-              margin: "0 auto",
-              width: "90%",
-            }}
-            mx={{ base: "auto" }}
-            width=""
-          ></hr>
-          dd */}
-          <Divider
+          <Box
             bg={"rgba(0, 0, 0, 0.2)"}
             height={"3px"}
             width={"90%"}
             margin={"0 auto"}
-          />
+          ></Box>
+          {/* <Divider
+            bg={"rgba(0, 0, 0, 0.2)"}
+            height={"3px"}
+            width={"90%"}
+            margin={"0 auto"}
+          /> */}
           <Grid
             templateColumns={{
-              base: "repeat(2,1fr)",
+              base: "repeat(3,1fr)",
               sm: "repeat(3, 1fr)",
               md: "repeat(3, 1fr)",
               lg: "repeat(4,1fr)",
               xl: "repeat(4, 1fr)",
               "2xl": "repeat(5,1fr)",
             }}
-            gap={{ base: "5", md: "6" }}
+            gap={{ base: "3", sm: "5", md: "6" }}
             paddingX={{ base: "3", md: "0.3px" }}
           >
             {Products.map((item, index) => {

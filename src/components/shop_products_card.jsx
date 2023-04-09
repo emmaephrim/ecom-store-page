@@ -13,7 +13,13 @@ export default function ProductCard({ img, content, price }) {
       // alignItems={"center"}
     >
       <Image src={img} objectFit={"contain"} />
-      <Box p={2} noOfLines={2} overflow={"hidden"} mb={"1"}>
+      <Box
+        p={2}
+        noOfLines={2}
+        overflow={"hidden"}
+        mb={"1"}
+        fontSize={{ base: "small", sm: "medium" }}
+      >
         {content}
       </Box>
       <Box
@@ -22,6 +28,7 @@ export default function ProductCard({ img, content, price }) {
         bottom={"0"}
         p={2}
         bg={"white"}
+        fontSize={{ base: "small", sm: "medium" }}
       >
         GH₵ {price}
       </Box>
