@@ -20,12 +20,23 @@ export default function ProductCard({ img, content, price, discount }) {
     >
       <Image src={img} objectFit={"contain"} />
       {discount > 0 && (
-        <Box textAlign={"start"} px={"5.7px"} pt={1}>
+        <Box
+          textAlign={"start"}
+          // px={"5.7px"}
+          // pt={1}
+          position={"absolute"}
+          top={0}
+          right={0}
+        >
           <Tag
             // display={discount ? { base: "block" } : "none"}
-            px={"5.7px"}
-            bg="#04386d33"
+            // px={"5.7px"}
+            // bg="#04386d33"
+            bg={"white"}
             borderRadius={0}
+            py={0}
+            px={1}
+            fontSize={{ lg: "large" }}
           >
             {getDiscountedPercentage(price, discount)}
           </Tag>
@@ -64,11 +75,20 @@ export default function ProductCard({ img, content, price, discount }) {
             marginRight={{ base: "0", md: 2 }}
             // display={discount ? { base: "block", md: "inline" } : "none"}
           >
-            <Box style={{ color: "black" }}>GH₵ {price}</Box>
+            <Box
+              style={{ color: "black" }}
+              display={{ base: "block", md: "inline" }}
+            >
+              GH₵ {price}
+            </Box>
           </Box>
         )}
 
-        <Box fontWeight={"bold"} display={{ base: "block", sm: "inline" }}>
+        <Box
+          fontWeight={"bold"}
+          display={{ base: "block", sm: "inline" }}
+          marginBottom={"auto"}
+        >
           GH₵ {discount > 0 ? discount : price}
         </Box>
       </Box>
