@@ -1,6 +1,11 @@
 import { Box, Grid, Image, Tag, Text } from "@chakra-ui/react";
 
 export default function ProductCard({ img, content, price, discount }) {
+  const getDiscountedPercentage = (price, discount) => {
+    let results = (((price - discount) / price) * 100)?.toFixed(1);
+    return "-" + results + "%";
+  };
+
   return (
     <Box
       display={"flex"}
@@ -10,10 +15,28 @@ export default function ProductCard({ img, content, price, discount }) {
       bg={"white"}
       position="relative"
       my={3}
+      _hover={{ shadow: "xl" }}
+      fontSize={{ base: "small", sm: "medium" }}
     >
       <Image src={img} objectFit={"contain"} />
+      {discount > 0 && (
+        <Box textAlign={"start"} px={"5.7px"} pt={1}>
+          <Tag
+            // display={discount ? { base: "block" } : "none"}
+            px={"5.7px"}
+            bg="#04386d33"
+            borderRadius={0}
+          >
+            {getDiscountedPercentage(price, discount)}
+          </Tag>
+        </Box>
+      )}
+
       <Box
-        p={2}
+        // m={2}
+        px="5.7px"
+        pb="5.7px"
+        // paddingBottom="9px"
         noOfLines={2}
         overflow={"hidden"}
         mb={"1"}
@@ -25,24 +48,28 @@ export default function ProductCard({ img, content, price, discount }) {
         position={"absolute"}
         color={"#2D7BD8"}
         bottom={"0"}
-        p={2}
+        px="5.7px"
         bg={"white"}
         fontSize={{ base: "small", sm: "medium" }}
         width={"100%"}
+        // paddingTop={0}
       >
-        <Box
-          color={"red"}
-          textDecoration={"line-through"}
-          textDecorationThickness={{ base: "1.4px", md: "1.6px" }}
-          fontWeight={"bold"}
-          // display={{ base: "block", md: "inline" }}
-          display={discount ? { base: "block", md: "inline" } : "none"}
-          marginRight={{ base: "0", md: 2 }}
-        >
-          <span style={{ color: "black" }}>{discount}</span>
-        </Box>
+        {discount > 0 && (
+          <Box
+            color={"red"}
+            textDecoration={"line-through"}
+            textDecorationThickness={{ base: "1.4px", md: "1.6px" }}
+            fontWeight={"bold"}
+            display={{ base: "block", md: "inline" }}
+            marginRight={{ base: "0", md: 2 }}
+            // display={discount ? { base: "block", md: "inline" } : "none"}
+          >
+            <Box style={{ color: "black" }}>GH₵ {price}</Box>
+          </Box>
+        )}
+
         <Box fontWeight={"bold"} display={{ base: "block", sm: "inline" }}>
-          GH₵ {price}
+          GH₵ {discount > 0 ? discount : price}
         </Box>
       </Box>
     </Box>
