@@ -12,6 +12,7 @@ export const Products = [
     id: 1,
     imgSrc: shop_product_1,
     content: "Chebula Active Serum ",
+    discount: "GH₵ 128",
     price: "220",
   },
   {
@@ -24,6 +25,7 @@ export const Products = [
     id: 3,
     imgSrc: shop_product_3,
     content: "Chebula Extreme Cream",
+    discount: "GH₵  400",
     price: "350",
   },
   {
@@ -36,6 +38,7 @@ export const Products = [
     id: 5,
     imgSrc: shop_product_5,
     content: "3 Step Glowy Skin Reset",
+    discount: "GH₵ 18",
     price: "700",
   },
   {
@@ -54,6 +57,7 @@ export const Products = [
     id: 8,
     imgSrc: shop_product_8,
     content: "Resurrection Radiance Eye Cream",
+    discount: "GH₵ 1,589",
     price: "315",
   },
 ];

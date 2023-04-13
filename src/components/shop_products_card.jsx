@@ -1,6 +1,6 @@
-import { Box, Grid, Image, Text } from "@chakra-ui/react";
+import { Box, Grid, Image, Tag, Text } from "@chakra-ui/react";
 
-export default function ProductCard({ img, content, price }) {
+export default function ProductCard({ img, content, price, discount }) {
   return (
     <Box
       display={"flex"}
@@ -10,7 +10,6 @@ export default function ProductCard({ img, content, price }) {
       bg={"white"}
       position="relative"
       my={3}
-      // alignItems={"center"}
     >
       <Image src={img} objectFit={"contain"} />
       <Box
@@ -29,8 +28,22 @@ export default function ProductCard({ img, content, price }) {
         p={2}
         bg={"white"}
         fontSize={{ base: "small", sm: "medium" }}
+        width={"100%"}
       >
-        GH₵ {price}
+        <Box
+          color={"red"}
+          textDecoration={"line-through"}
+          textDecorationThickness={{ base: "1.4px", md: "1.6px" }}
+          fontWeight={"bold"}
+          // display={{ base: "block", md: "inline" }}
+          display={discount ? { base: "block", md: "inline" } : "none"}
+          marginRight={{ base: "0", md: 2 }}
+        >
+          <span style={{ color: "black" }}>{discount}</span>
+        </Box>
+        <Box fontWeight={"bold"} display={{ base: "block", sm: "inline" }}>
+          GH₵ {price}
+        </Box>
       </Box>
     </Box>
   );

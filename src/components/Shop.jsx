@@ -88,6 +88,7 @@ export default function Shope() {
                   content={item.content}
                   img={item.imgSrc}
                   price={item.price}
+                  discount={item.discount}
                 />
               );
             })}
